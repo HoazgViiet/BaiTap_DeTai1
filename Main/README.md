@@ -2,14 +2,14 @@
 
 Ứng dụng CLI quản lý kho sách, độc giả và quy trình mượn/trả sách, được tối ưu hóa bằng các cấu trúc dữ liệu kinh điển (C++17).
 
-> **Lệnh biên dịch & chạy:** `g++ -std=c++17 src/main.cpp src/functions.cpp -o app && ./app`
+> **Lệnh biên dịch & chạy:** `g++ -std=c++17 main.cpp LibraryManager.cpp -o app && ./app`
 > *(Lưu ý: Trên Windows, đổi `./app` thành `app.exe`)*
 
 ---
 
 ### 🛠 1. Cấu trúc dữ liệu sử dụng
 
-* **BST :** Quản lý kho sách. Giúp thêm, xóa, sửa và tìm kiếm sách (theo mã) tốc độ cao.
+* **BST ($O(\log n)$):** Quản lý kho sách. Giúp thêm, xóa, sửa và tìm kiếm sách (theo mã) tốc độ cao.
 * **Queue (FIFO):** Quản lý hàng đợi. Đảm bảo công bằng: ai đăng ký chờ sách trước sẽ được mượn trước.
 * **Stack (LIFO):** Quản lý lịch sử thao tác. Hỗ trợ tính năng **Undo (Hoàn tác)** lại hành động mượn/trả vừa thực hiện.
 * **Linked List:** Quản lý danh sách độc giả. Cấp phát bộ nhớ động linh hoạt, dễ dàng thêm/xóa mà không gây lãng phí.
@@ -38,7 +38,8 @@
 ### 📂 4. Cấu trúc mã nguồn
 
 ```text
-src/
-├── main.cpp       # Menu Console và luồng điều khiển chính
-├── structures.h   # Khai báo cấu trúc (Book, Reader) và nguyên mẫu hàm
-└── functions.cpp  # Cài đặt chi tiết logic giải thuật
+Code/
+├── main.cpp           # Menu Console và luồng điều khiển chính
+├── DataStructures.h   # Khai báo các cấu trúc dữ liệu (Book, Reader, Action)
+├── LibraryManager.h   # Khai báo lớp quản lý (LibraryManager) và nguyên mẫu hàm
+└── LibraryManager.cpp # Cài đặt chi tiết logic giải thuật (BST, Queue, Stack, LL)
