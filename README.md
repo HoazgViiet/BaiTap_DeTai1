@@ -17,10 +17,18 @@
 | **Linked List** | Danh sách liên kết | Quản lý danh sách độc giả. Cấp phát bộ nhớ động linh hoạt, dễ dàng thêm/xóa mà không gây lãng phí. |
 
 Hệ thống của bạn sử dụng 4 cấu trúc dữ liệu, mỗi cấu trúc giải quyết một bài toán cụ thể rất hợp lý:  
-- Danh sách liên kết đơn (Linked List) - struct Reader: * Vai trò: Quản lý danh sách độc giả.Ý tưởng: Vì lượng độc giả đăng ký thẻ thư viện có thể tăng lên liên tục, việc dùng Linked List giúp hệ thống cấp phát bộ nhớ động linh hoạt (new Reader), không bị giới hạn dung lượng như dùng mảng cố định.  
-- Cây nhị phân tìm kiếm (BST) - struct Book:Vai trò: Quản lý kho sách.Ý tưởng: Thư viện có rất nhiều sách. Việc tìm một cuốn sách theo mã (ID) trên mảng thông thường sẽ tốn thời gian $O(n)$. Việc tổ chức sách thành BST giúp phân nhánh dữ liệu (nhỏ sang trái, lớn sang phải), giảm thời gian tìm kiếm, thêm, xóa xuống mức trung bình là $O(\log n)$.  
-- Hàng đợi (Queue) - queue<string> waitlist (Nằm trong Book):Vai trò: Quản lý danh sách người chờ mượn khi sách đã hết.Ý tưởng: Hoạt động theo cơ chế FIFO (First In - First Out). Ai đến xếp hàng trước sẽ được ưu tiên nhận sách trước khi có người trả. Việc đặt hàng đợi này nằm ngay bên trong mỗi cuốn sách là một thiết kế rất tối ưu, giúp quản lý hàng chờ cục bộ cho từng đầu sách riêng biệt
-- Ngăn xếp (Stack) - stack<Action> history:Vai trò: Lưu lịch sử mượn/trả để hỗ trợ tính năng Hoàn tác (Undo).Ý tưởng: Hoạt động theo cơ chế LIFO (Last In - First Out). Thao tác nào vừa làm gần nhất sẽ nằm trên đỉnh Stack, khi gọi lệnh Undo, hệ thống chỉ cần bốc phần tử trên đỉnh này ra để đảo ngược trạng thái (VD: đang mượn thì thành chưa mượn).
+- Danh sách liên kết đơn (Linked List) - struct Reader: *
+  Vai trò: Quản lý danh sách độc giả.
+  Ý tưởng: Vì lượng độc giả đăng ký thẻ thư viện có thể tăng lên liên tục, việc dùng Linked List giúp hệ thống cấp phát bộ nhớ động linh hoạt (new Reader), không bị giới hạn dung lượng như dùng mảng cố định.  
+- Cây nhị phân tìm kiếm (BST) - struct Book:
+  Vai trò: Quản lý kho sách.
+  Ý tưởng: Thư viện có rất nhiều sách. Việc tìm một cuốn sách theo mã (ID) trên mảng thông thường sẽ tốn thời gian $O(n)$. Việc tổ chức sách thành BST giúp phân nhánh dữ liệu (nhỏ sang trái, lớn sang phải), giảm thời gian tìm kiếm, thêm, xóa xuống mức trung bình là $O(\log n)$.  
+- Hàng đợi (Queue) - queue<string> waitlist (Nằm trong Book):
+  Vai trò: Quản lý danh sách người chờ mượn khi sách đã hết.
+  Ý tưởng: Hoạt động theo cơ chế FIFO (First In - First Out). Ai đến xếp hàng trước sẽ được ưu tiên nhận sách trước khi có người trả. Việc đặt hàng đợi này nằm ngay bên trong mỗi cuốn sách là một thiết kế rất tối ưu, giúp quản lý hàng chờ cục bộ cho từng đầu sách riêng biệt
+- Ngăn xếp (Stack) - stack<Action> history:
+  Vai trò: Lưu lịch sử mượn/trả để hỗ trợ tính năng Hoàn tác (Undo).
+  Ý tưởng: Hoạt động theo cơ chế LIFO (Last In - First Out). Thao tác nào vừa làm gần nhất sẽ nằm trên đỉnh Stack, khi gọi lệnh Undo, hệ thống chỉ cần bốc phần tử trên đỉnh này ra để đảo ngược trạng thái (VD: đang mượn thì thành chưa mượn).
 
 ### 🚀 2. Chức năng chính
 
